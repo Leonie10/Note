@@ -3,13 +3,9 @@ import Note from '../components/Note/Note'
 import Nav from '../components/Nav/Nav';
 
 
-const Home = () => {
-    return (
-        <>
+export default function HomePage(){
+    return <>
         <Nav/>
         <Note/>
-        </>
-    )
+    </>
 }
-
-export default Home; 
