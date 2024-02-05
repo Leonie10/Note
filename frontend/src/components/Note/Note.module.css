@@ -1,0 +1,28 @@
+.container{
+    width:300px;
+    height: 300px;
+    background-color: #313131;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 3px 20px 50px 3px #321645, inset 0px 0px 6px 1px #585858;
+    padding: 5px;
+    padding-left: 10px
+  }
+  .btn-delete, .btn-more, .btn-less{
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #ffaba3;
+  }
+  .btn-more{
+    background-color: #84fa82;
+  }
+  .btn-less{
+    background-color:#fdff73;
+  }
+
+.add-new-note{
+    display: inline-block;
+    fill:red;
+  }

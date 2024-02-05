@@ -1,10 +1,10 @@
 import FormAuthentification from "../UI/FormAuthentification"
 
 
-const Authentification = () => {
+const Authentication = () => {
     return(
         <FormAuthentification/>
     )
 }
 
-export default Authentification;
+export default Authentication;

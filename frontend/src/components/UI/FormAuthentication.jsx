@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormAuthentification = () => {
+const FormAuthentication = () => {
     const [input, setInput] = useState("");
 
     const onChangeInput = (e) => {
@@ -17,9 +17,12 @@ const FormAuthentification = () => {
             <label>
                 <input type="tel" value={input} onChange={onChangeInput}/>
             </label>
+            <label>
+                <input type="password"/>
+            </label>
             <button type="submit"> ok  </button>
         </form>
     )
 }
 
-export default FormAuthentification;
+export default FormAuthentication;

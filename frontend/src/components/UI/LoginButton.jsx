@@ -1,7 +1,7 @@
 import styles from './LoginButton.module.css';
 import LoginBtn from '../../assets/loginbtn.svg'
-import Svg from './Svg';
 import { Link } from 'react-router-dom';
+import SvgLogin from './SVG/SvgLogin';
 
 
 const LoginButton = () => {
@@ -9,7 +9,7 @@ const LoginButton = () => {
     return (
         <div className="loginBtn">
                 <Link to="/auth">
-                    <Svg />
+                    <SvgLogin />
                 </Link>
         </div>
     );
