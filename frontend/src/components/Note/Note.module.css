@@ -9,9 +9,10 @@
     padding-left: 10px
   }
   .btn-delete, .btn-more, .btn-less{
-    display:inline-block;
+    display: inline-block;
     width: 10px;
     height: 10px;
+    margin-left: 5px;
     border-radius: 5px;
     background-color: #ffaba3;
   }

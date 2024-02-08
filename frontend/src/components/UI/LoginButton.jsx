@@ -1,5 +1,4 @@
 import styles from './LoginButton.module.css';
-import LoginBtn from '../../assets/loginbtn.svg'
 import { Link } from 'react-router-dom';
 import SvgLogin from './SVG/SvgLogin';
 

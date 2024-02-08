@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #E8DAF1;
-}
 
+}
+body{
+    background-color: #535054;
+}
 /*   #73359F */

@@ -5,36 +5,23 @@ import SvgAdd from '../UI/SVG/SvgAdd'
 const Note = () => {
 
     return (
+            <main className={classes.container}>
 
-            <main class="container">
-
-                <section>
+                <div>
                     
-                <div class="container">
-  <header>
-    <div className="btn"> 
+                <div >
+                            <div className="btn"> 
 
-        <span class="btn-delete"></span>
-        <span class="btn-less"></span>
-        <span class="btn-more"></span>
-                          
-    </div>
-    
-     <div>
-     
-        <SvgAdd class={classes["add-new-note"]}/>
-        
-    </div>
-    
-  </header>
-    
-    
-   
-</div>
+                                <span className={classes["btn-delete"]}></span>
+                                <span className={classes["btn-less"]}></span>
+                                <span className={classes["btn-more"]}></span>
+                                
+                            </div>
 
+                            <SvgAdd class={classes["add-new-note"]}/>
+                </div>
 
-
-                </section>
+                </div>
 
                   
                 <section>
@@ -43,9 +30,7 @@ const Note = () => {
 
 
             </main>
-
     )
 }
-
 
 export default Note;
