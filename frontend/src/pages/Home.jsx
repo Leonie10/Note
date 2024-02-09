@@ -1,10 +1,6 @@
-
-import Note from '../components/Note/Note'
-import Nav from '../components/Nav/Nav';
+import Notes from '../components/Note/Notes/Notes';
 
 
 export default function HomePage(){
-    return <>
-        <Note/>
-    </>
+    return <Notes/>
 }

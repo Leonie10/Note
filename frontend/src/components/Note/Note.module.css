@@ -1,13 +1,25 @@
-.container{
-    width:300px;
-    height: 300px;
+.note-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 280px;
     background-color: #313131;
     border-radius: 10px;
-    border: 1px solid black;
-    box-shadow: 3px 20px 50px 3px #321645, inset 0px 0px 6px 1px #585858;
+    opacity:1;
+    border: 1px solid rgb(40, 39, 39);
+    box-shadow: 3px 20px 50px 3px #21454a;
     padding: 5px;
-    padding-left: 10px
+    padding-left: 10px;
+    margin: 40px;
+    color: #f5f4e1;
+    cursor: pointer;
   }
+  .note-container_header{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .btn-delete, .btn-more, .btn-less{
     display: inline-block;
     width: 10px;
@@ -25,5 +37,6 @@
 
 .add-new-note{
     display: inline-block;
-    fill:red;
-  }
+}
+
+/* border inside white for note : , inset 0px 0px 2px 1px #585858 */
