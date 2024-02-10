@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 
-function useDragger () {
+
+function useDragger(id) {
 
     const isClicked = useRef(false)
+
     const coords = useRef({
             startX: 0,
             startY: 0,
@@ -13,11 +15,11 @@ function useDragger () {
 
     useEffect(() => {
 
-        if(!containerRef.current || !elementRef.current ) return;
+        const target = document.getElementById(id)
+        if(!target) throw new Error("Element with given id doesn't exist")
 
-        const container = containerRef.current;
-        const element = elementRef.current;
-
+        const container = target.parentElement;
+        if(!container) throw new Error("target element must have a parent")
         
         
         const onMouseDown = (e) => {
@@ -29,42 +31,41 @@ function useDragger () {
         const onMouseUp = (e) => {
             isClicked.current = false;
 
-            coords.current.lastX = element.offsetLeft;
-            coords.current.lastY = element.offsetTop;
+            coords.current.lastX = target.offsetLeft;
+            coords.current.lastY = target.offsetTop;
         }
 
         const onMouseMove = (e) => {
 
-            if(!isClicked) return;
-
+            if(!isClicked.current) {
+                return;
+            }
             const nextX = e.clientX - coords.current.startX + coords.current.lastX; 
             const nextY = e.clientY - coords.current.startY + coords.current.lastY;
 
-            element.style.top = `${nextX}px`
-            element.style.left = `${nextY}px`
+            target.style.top = `${nextY}px`
+            target.style.left = `${nextX}px`
 
         }
 
 
        
-        element.addEventListenner('mousedowm', onMouseDown)
-        element.addEventListenner('mouseup', onMouseUp)
-        container.addEventListenner('mousemove', onMouseMove)
+        target.addEventListener('mousedowm', onMouseDown)
+        target.addEventListener('mouseup', onMouseUp)
+        container.addEventListener('mousemove', onMouseMove)
+        container.addEventListener('mouseleave', onMouseUp)
 
 
         const cleanUp = () => {
-            element.removeEventListener('mousedown', onMouseDown)
-            element.removeEventListener('mouseup', onMouseUp)
+            target.removeEventListener('mousedown', onMouseDown)
+            target.removeEventListener('mouseup', onMouseUp)
             container.removeEventListener('mousemove', onMouseMove)
+            container.removeEventListener('mouseleave', onMouseUp)
         }
 
         return cleanUp;
-    }, [])
+    }, [id])
 
-    return {
-        containerRef,
-        elementRef
-    }
 }
 
 export default useDragger;

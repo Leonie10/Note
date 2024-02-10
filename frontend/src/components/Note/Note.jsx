@@ -1,12 +1,14 @@
 import style from './Note.module.css'
 import SvgAdd from '../UI/SVG/SvgAdd'
 import { useState } from 'react';
+import useDragger from '../../hooks/useDragger';
 
 
 const Note = (props) => {
 
     let classes = `${style["note-container"]}`;
 
+   
 
   
     return (

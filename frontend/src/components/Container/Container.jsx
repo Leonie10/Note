@@ -1,15 +1,19 @@
 import { useState } from "react";
-import Note from "../Note/Note"
-import classes from './Notes.module.css'
+import Note from '../Note/Note'
+import classes from './Container.module.css'
 
-const Notes = () => {
+import useDragger from "../../hooks/useDragger";
 
+const Container = () => {
+    
+    useDragger("first")
  
-    return <main className={classes.main}>
-        <Note id="first"/>
-        <Note id="second"/>
-        <Note id="third"/>
+    return <main >
+        <div className={classes.main}>
+            <Note id="first"/>
+        </div>
+        
     </main>
 }
 
-export default Notes
+export default Container;

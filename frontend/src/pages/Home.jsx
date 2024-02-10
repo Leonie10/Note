@@ -1,6 +1,6 @@
-import Notes from '../components/Note/Notes/Notes';
+import Container from '../components/Container/Container';
 
 
 export default function HomePage(){
-    return <Notes/>
+    return <Container/>
 }
