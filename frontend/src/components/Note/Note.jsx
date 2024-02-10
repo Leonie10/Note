@@ -7,31 +7,10 @@ const Note = (props) => {
 
     let classes = `${style["note-container"]}`;
 
-   const elementRef = useRef(null);
 
-   useEffect(() => {
-       if(!containerRef.current || !elementRef.current ) return;
-
-       const container = props.containerRef.current;
-       const element = elementRef.current;
-       
-       const onMouseDown = () => {
-           console.log('clicked')
-       }
-      
-       element.addEventListenner('mousedowm', onMouseDown)
-
-
-       const cleanUp = () => {
-           element.removeEventListener('mousedown', onMouseDown)
-       }
-
-       return cleanUp;
-   })
-
-
+  
     return (
-            <div className={classes} >
+            <div className={classes} id={props.id} >
 
                 <div >
                     
