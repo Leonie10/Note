@@ -6,11 +6,10 @@ import useDragger from '../../hooks/useDragger';
 
 const Note = (props) => {
 
+    useDragger("first")
+    
     let classes = `${style["note-container"]}`;
-
    
-
-  
     return (
             <div className={classes} id={props.id} >
 

@@ -37,9 +37,7 @@ function useDragger(id) {
 
         const onMouseMove = (e) => {
 
-            if(!isClicked.current) {
-                return;
-            }
+            if(!isClicked.current) return;
             const nextX = e.clientX - coords.current.startX + coords.current.lastX; 
             const nextY = e.clientY - coords.current.startY + coords.current.lastY;
 
@@ -50,7 +48,7 @@ function useDragger(id) {
 
 
        
-        target.addEventListener('mousedowm', onMouseDown)
+        target.addEventListener('mousedown', onMouseDown)
         target.addEventListener('mouseup', onMouseUp)
         container.addEventListener('mousemove', onMouseMove)
         container.addEventListener('mouseleave', onMouseUp)
