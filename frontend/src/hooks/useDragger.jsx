@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
 
+// Components? Note / texte dans Notes / Projects / Customiser 
+
+// get items from context 
 
 function useDragger(id) {
 
@@ -23,28 +26,40 @@ function useDragger(id) {
         
         
         const onMouseDown = (e) => {
+
             isClicked.current = true;
+
             coords.current.startX = e.clientX; 
             coords.current.startY = e.clientY;
+            target.style.zIndex += 1;
+        }
+
+        const onMouseMove = (e) => {
+
+
+            if(!isClicked.current) {
+                return;
+            }
+
+            const nextX = e.clientX - coords.current.startX + coords.current.lastX ; 
+            const nextY = e.clientY - coords.current.startY + coords.current.lastY;
+
+            target.style.top = `${nextY}px`;
+            target.style.left = `${nextX}px`;
+            target.style.zIndex = 2;
+
+
         }
 
         const onMouseUp = (e) => {
             isClicked.current = false;
 
-            coords.current.lastX = target.offsetLeft;
-            coords.current.lastY = target.offsetTop;
+            coords.current.lastX = target.offsetLeft ;
+            coords.current.lastY = target.offsetTop ;
+            target.style.zIndex = 1;
         }
 
-        const onMouseMove = (e) => {
-
-            if(!isClicked.current) return;
-            const nextX = e.clientX - coords.current.startX + coords.current.lastX; 
-            const nextY = e.clientY - coords.current.startY + coords.current.lastY;
-
-            target.style.top = `${nextY}px`
-            target.style.left = `${nextX}px`
-
-        }
+      
 
 
        

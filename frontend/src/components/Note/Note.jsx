@@ -1,16 +1,28 @@
 import style from './Note.module.css'
 import SvgAdd from '../UI/SVG/SvgAdd'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import useDragger from '../../hooks/useDragger';
+import { DraggerContext } from '../../store/dragger-context';
+
+// animations 
+// Hover header element : afficher chaque element (bouton elargir retrecir )
+// resize custom hook 
+// z-index change
 
 
 const Note = (props) => {
 
-    useDragger("first")
+
+    const id = props.id;
+
+    useDragger(id)
     
+
+
     let classes = `${style["note-container"]}`;
    
     return (
+  
             <div className={classes} id={props.id} >
 
                 <div >
@@ -32,7 +44,7 @@ const Note = (props) => {
                   
                 <section>
 
-                    <div className="content"> texte...</div>
+                    <div className="content"></div>
 
                 </section>
 

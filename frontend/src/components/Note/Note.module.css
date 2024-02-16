@@ -2,8 +2,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 280px;
-    height: 280px;
+    width: 380px;
+    height: 380px;
     background-color: #313131;
     border-radius: 10px;
     opacity:1;
@@ -11,10 +11,12 @@
     box-shadow: 3px 20px 50px 3px #21454a;
     padding: 5px;
     padding-left: 10px;
-    margin: 40px;
     color: #f5f4e1;
     cursor: pointer;
+    z-index: 1;
+ 
   }
+
   .note-container_header{
     display: flex;
     justify-content: space-between;
@@ -28,6 +30,7 @@
     border-radius: 5px;
     background-color: #ffaba3;
   }
+  
   .btn-more{
     background-color: #84fa82;
   }

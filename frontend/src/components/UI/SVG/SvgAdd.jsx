@@ -1,6 +1,8 @@
+import useDragger from "../../../hooks/useDragger";
 
 
 const SvgAdd = (props) => {
+
     return  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="25" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="25" preserveAspectRatio="xMidYMid meet" version="1.0">
                     <defs><filter id="inset-shadow">
                 <feOffset dx="10" dy="10"/>                                                         

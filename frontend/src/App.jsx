@@ -27,9 +27,7 @@ function App() {
     
   ])
 
-  return <DraggerContext.Provider> 
-      <RouterProvider router={router}/> 
-  </DraggerContext.Provider> 
+  return <RouterProvider router={router}/> 
 }
 
 export default App;
