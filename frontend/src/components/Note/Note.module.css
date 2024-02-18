@@ -2,8 +2,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 380px;
-    height: 380px;
+    width: 350px;
+    height: 350px;
     background-color: #313131;
     border-radius: 10px;
     opacity:1;
@@ -14,7 +14,6 @@
     color: #f5f4e1;
     cursor: pointer;
     z-index: 1;
- 
   }
 
   .note-container_header{
@@ -41,5 +40,38 @@
 .add-new-note{
     display: inline-block;
 }
+
+.resizable {
+  position: absolute;
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 15px;
+  min-height: 15px;
+}
+
+.resizer{
+  position: absolute;
+  background: black;
+}
+.resizerR{
+  cursor: ne-resize;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 5px;
+}
+
+
+
+
+
+
+
+
 
 /* border inside white for note : , inset 0px 0px 2px 1px #585858 */

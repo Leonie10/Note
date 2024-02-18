@@ -1,8 +1,5 @@
 import { useEffect, useRef } from "react";
 
-// Components? Note / texte dans Notes / Projects / Customiser 
-
-// get items from context 
 
 function useDragger(id) {
 
@@ -19,6 +16,8 @@ function useDragger(id) {
     useEffect(() => {
 
         const target = document.getElementById(id)
+
+    
         if(!target) throw new Error("Element with given id doesn't exist")
 
         const container = target.parentElement;
@@ -36,11 +35,23 @@ function useDragger(id) {
 
         const onMouseMove = (e) => {
 
+             //Element position in viewport
+            // const targetRect = target.getBoundingClientRect()
+            // const left = targetRect.left;
+            // const top = targetRect.top;
+            // const width = targetRect.width;
+            // const height = targetRect.height
 
-            if(!isClicked.current) {
+            // //Mouse position in element 
+            // const mousex = e.clientX - left;
+            // const mousey = e.clientY - top;
+            // console.log(mousex, mousey)
+
+
+            if(!isClicked.current ){
                 return;
             }
-
+            
             const nextX = e.clientX - coords.current.startX + coords.current.lastX ; 
             const nextY = e.clientY - coords.current.startY + coords.current.lastY;
 
@@ -48,7 +59,7 @@ function useDragger(id) {
             target.style.left = `${nextX}px`;
             target.style.zIndex = 2;
 
-
+    
         }
 
         const onMouseUp = (e) => {

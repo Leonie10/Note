@@ -1,0 +1,17 @@
+.box-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    background-color: #313131;
+    border-radius: 10px;
+    opacity:1;
+    border: 1px solid rgb(40, 39, 39);
+    box-shadow: 3px 20px 50px 3px #21454a;
+    padding: 5px;
+    padding-left: 10px;
+    color: #f5f4e1;
+    cursor: pointer;
+    z-index: 1;
+}
