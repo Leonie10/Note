@@ -1,13 +1,37 @@
 import   classes from './Box.module.css'
 import useDragger from '../../hooks/useDragger'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
 
 const Box = (props) => {
+    // State is resizing or dragging send to container
+    const boxRef= useRef(); 
+    // Mouse position 
 
-    useDragger(props.id)
- 
-    return <div id={props.id} className={classes["box-container"]} >
-        {props.children}
+    const onMouseDownHandler = (e) => {
+        console.log("mouseDown")
+    }
+
+    const onMouseMoveHandler = (e) => {
+        
+        console.log("mousemove")
+    }
+
+    const onMouseUpHandler = (e) => {
+        console.log("mouseup")
+    }
+
+    
+    return <div className={classes["box-container"]} ref={boxRef}>
+
+        <div className={`${classes.resizer} ${classes.rl}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
+        <div className={`${classes.resizer} ${classes.rt}` } onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
+        <div className={`${classes.resizer} ${classes.rr}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
+        <div className={`${classes.resizer} ${classes.rb}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler} ></div>
+
+        <div className={`${classes.drag}`}>
+            {props.children}
+        </div>
     </div>
 }
 
@@ -15,7 +39,7 @@ export default Box;
 
 
 
-// Resize & Drag
+// Resize & Drag<
 
 // useEffect(() => {
 //     useDragger(props.id)
