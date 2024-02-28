@@ -16,6 +16,24 @@ const Note = (props) => {
 export default Note;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // old note 
 
 

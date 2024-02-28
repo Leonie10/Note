@@ -8,7 +8,7 @@ const LoginButton = () => {
     return (
         <div className="loginBtn">
                 <Link to="/auth">
-                    <SvgLogin />
+                    Se connecter
                 </Link>
         </div>
     );

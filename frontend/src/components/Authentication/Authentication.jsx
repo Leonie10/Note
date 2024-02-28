@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import FormAuthentification from "../UI/FormAuthentification"
 
 
 const Authentication = () => {
-    return(
+    return<div>
         <FormAuthentification/>
-    )
+       
+    </div>
+        
 }
 
 export default Authentication;

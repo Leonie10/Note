@@ -4,58 +4,62 @@ import { useRef, useState } from 'react'
 
 
 const Box = (props) => {
-    // State is resizing or dragging send to container
-    const boxRef= useRef(); 
-    // Mouse position 
 
-    const onMouseDownHandler = (e) => {
-        console.log("mouseDown")
+    useDragger(props.id)
+
+
+    const boxRef = useRef(null)
+    const refLeft = useRef(null)
+    const refTop = useRef(null)
+    const refRight = useRef(null)
+    const refBottom = useRef(null)
+
+
+    const onClickHandler =  () => {
+        // depend of the purpose of the box
     }
-
-    const onMouseMoveHandler = (e) => {
-        
-        console.log("mousemove")
-    }
-
-    const onMouseUpHandler = (e) => {
-        console.log("mouseup")
-    }
-
     
-    return <div className={classes["box-container"]} ref={boxRef}>
+   
 
-        <div className={`${classes.resizer} ${classes.rl}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
-        <div className={`${classes.resizer} ${classes.rt}` } onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
-        <div className={`${classes.resizer} ${classes.rr}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler}></div>
-        <div className={`${classes.resizer} ${classes.rb}`} onMouseDown={onMouseDownHandler}  onMouseMove={onMouseMoveHandler} onMouseUp={onMouseUpHandler} ></div>
+    return <div id={props.id} className={classes["box-container"]} >
 
-        <div className={`${classes.drag}`}>
+            <div className={`${classes.resizer} ${classes.rl}`} ></div>
+            <div className={`${classes.resizer} ${classes.rt}` }></div>
+            <div className={`${classes.resizer} ${classes.rr}`} ></div>
+            <div className={`${classes.resizer} ${classes.rb}`} ></div>
+
+        <div className={`${classes.drag}`} >
             {props.children}
         </div>
+
     </div>
 }
+
+
 
 export default Box;
 
 
 
-// Resize & Drag<
-
-// useEffect(() => {
-//     useDragger(props.id)
-// }, [isDragging])
 
 
 
-// useEffect(() => useReszing(), [isResizing])
 
-// Mouse Position
+
+
+
+
+
+
+
+
+// Resize & Drag
 
 
 // const onMouseMoveHandler = (e) =>{
 
-//     // target width and height
-//     // set min width size element when resizing 
+//      target width and height
+//      set min width size element when resizing 
 
 //     //Element position in viewport
 //     const target = e.target.getBoundingClientRect()

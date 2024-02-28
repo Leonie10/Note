@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 
-function useDragger(id) {
+function useDragger(isDragging, id) {
 
     const isClicked = useRef(false)
 
@@ -10,11 +10,12 @@ function useDragger(id) {
             startY: 0,
             lastX: 0,
             lastY: 0
-        })
+    })
 
 
     useEffect(() => {
-
+       
+        console.log("useDragger")
         const target = document.getElementById(id)
 
     
@@ -61,7 +62,7 @@ function useDragger(id) {
 
     
         }
-
+                                                                                                                       
         const onMouseUp = (e) => {
             isClicked.current = false;
 
@@ -69,9 +70,6 @@ function useDragger(id) {
             coords.current.lastY = target.offsetTop ;
             target.style.zIndex = 1;
         }
-
-      
-
 
        
         target.addEventListener('mousedown', onMouseDown)
@@ -88,7 +86,7 @@ function useDragger(id) {
         }
 
         return cleanUp;
-    }, [id])
+    }, [isDragging,id])
 
 }
 
