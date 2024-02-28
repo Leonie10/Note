@@ -1,18 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
+import { PositionElementsContext } from "../store/elements-context";
 
 function useResizer() {
-const ref = useRef(null)
-const refLeft = useRef(null)
-const refTop = useRef(null)
-const refRight = useRef(null)
-const refBottom = useRef(null)
 
-
+// top and left of side
+// height and width of box
 
 
 
 }
+
 
 export default useResizer; 
 

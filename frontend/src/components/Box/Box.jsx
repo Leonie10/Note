@@ -1,36 +1,35 @@
 import   classes from './Box.module.css'
 import useDragger from '../../hooks/useDragger'
-import { useRef, useState } from 'react'
+import useResizer from '../../hooks/useResizer'
+import { useRef, useState, useContext, useEffect } from 'react'
+import { PositionElementsContext } from '../../store/elements-context'
 
 
 const Box = (props) => {
 
-    useDragger(props.id)
+    const positionElementsCtx = useContext(PositionElementsContext)
+    const containerRef = positionElementsCtx.containerRef;
+
+    const boxRef = useRef()
+    const refTop = useRef()
+    const refLeft = useRef()
+    const refRight = useRef()
+    const refBottom = useRef()
+
+    // useDragger(props.id)
 
 
-    const boxRef = useRef(null)
-    const refLeft = useRef(null)
-    const refTop = useRef(null)
-    const refRight = useRef(null)
-    const refBottom = useRef(null)
 
 
-    const onClickHandler =  () => {
-        // depend of the purpose of the box
-    }
-    
-   
 
-    return <div id={props.id} className={classes["box-container"]} >
+    return <div id={props.id} className={classes["box-container"]} ref={boxRef} onMouseMove={onMouseMove} >
 
-            <div className={`${classes.resizer} ${classes.rl}`} ></div>
-            <div className={`${classes.resizer} ${classes.rt}` }></div>
-            <div className={`${classes.resizer} ${classes.rr}`} ></div>
-            <div className={`${classes.resizer} ${classes.rb}`} ></div>
+            <div className={`${classes.resizer} ${classes.rl}`} ref={refLeft} ></div>
+            <div className={`${classes.resizer} ${classes.rt}` } ref={refTop}></div>
+            <div className={`${classes.resizer} ${classes.rr}`} ref={refRight}></div>
+            <div className={`${classes.resizer} ${classes.rb}`}ref={refBottom} ></div>
 
-        <div className={`${classes.drag}`} >
             {props.children}
-        </div>
 
     </div>
 }

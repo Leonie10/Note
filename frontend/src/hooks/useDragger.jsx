@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
 
-function useDragger(isDragging, id) {
+function useDragger(id) {
+
 
     const isClicked = useRef(false)
 
@@ -14,8 +15,8 @@ function useDragger(isDragging, id) {
 
 
     useEffect(() => {
+
        
-        console.log("useDragger")
         const target = document.getElementById(id)
 
     
@@ -32,6 +33,7 @@ function useDragger(isDragging, id) {
             coords.current.startX = e.clientX; 
             coords.current.startY = e.clientY;
             target.style.zIndex += 1;
+            console.log('mouse down on resize')
         }
 
         const onMouseMove = (e) => {
@@ -49,7 +51,7 @@ function useDragger(isDragging, id) {
             // console.log(mousex, mousey)
 
 
-            if(!isClicked.current ){
+            if(!isClicked.current){
                 return;
             }
             
@@ -86,7 +88,7 @@ function useDragger(isDragging, id) {
         }
 
         return cleanUp;
-    }, [isDragging,id])
+    }, [id])
 
 }
 

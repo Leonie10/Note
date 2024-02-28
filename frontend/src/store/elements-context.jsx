@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
-export const PositionElementsContext = createContext({
-    containerRef: null
+export const ElementsContext = createContext({
+    containerRef: null,
 })
 
 
