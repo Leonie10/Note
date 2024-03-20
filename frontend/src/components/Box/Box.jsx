@@ -1,28 +1,102 @@
 import   classes from './Box.module.css'
 import useDragger from '../../hooks/useDragger'
-import useResizer from '../../hooks/useResizer'
 import { useRef, useState, useContext, useEffect } from 'react'
-import { PositionElementsContext } from '../../store/elements-context'
+
 
 
 const Box = (props) => {
 
-    const positionElementsCtx = useContext(PositionElementsContext)
-    const containerRef = positionElementsCtx.containerRef;
 
-    const boxRef = useRef()
-    const refTop = useRef()
-    const refLeft = useRef()
-    const refRight = useRef()
-    const refBottom = useRef()
+    const boxRef = useRef(null)
 
-    // useDragger(props.id)
+    const refTop = useRef(null)
+    const refLeft = useRef(null)
+    const refRight = useRef(null)
+    const refBottom = useRef(null)
 
 
+    useEffect( ()=> {
+
+        const container = document.getElementById("container");
+
+        let box = boxRef.current
+        let borderRight = refRight.current;
+
+        let styles = window.getComputedStyle(box);
+
+        let height = parseInt(styles.height,10);
+        let width = parseInt(styles.width, 10);
 
 
+        let topBox = styles.top
+        let leftBox = styles.left
 
-    return <div id={props.id} className={classes["box-container"]} ref={boxRef} onMouseMove={onMouseMove} >
+        // console.log('top', 'right', topBox, leftBox)
+
+        let coords = {
+            x: 0,
+            y: 0
+        }
+
+
+        const onMouseDownHandler = (e) => {
+            console.log('mouse down ')
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+
+            borderRight.addEventListener("mousemove", onMouseMoveHandler)
+            container.addEventListener("mousemove", onMouseMoveHandler)
+        }
+
+
+        const onMouseMoveHandler = (e) => {
+
+            e.preventDefault();
+
+            console.log('mouse move ')
+
+            const dx = e.clientX - coords.x;
+            width = coords.x + dx;
+            box.style.width = `${width}px`;
+            coord
+            console.log("coords", coords)
+            console.log("width", width)
+            borderRight.addEventListener("mouseup", onMouseUpHandler)
+            container.addEventListener("mouseup", onMouseUpHandler)
+        }
+
+
+        const onMouseUpHandler = (e) => {
+            console.log('mouse up ')
+
+            const dx = e.clientX - coords.x;
+            width = dx;
+
+            borderRight.removeEventListener("mousemove", onMouseMoveHandler)
+            container.removeEventListener("mousemove", onMouseMoveHandler)
+            
+
+        }
+      
+        borderRight.addEventListener("mousedown", onMouseDownHandler)
+        
+
+
+      
+
+        return () => {
+            borderRight.removeEventListener("mousedown", onMouseDownHandler)
+            borderRight.removeEventListener("mouseup", onMouseMoveHandler)
+            container.removeEventListener("mouseup", onMouseMoveHandler)
+
+        }
+
+
+    },[])
+
+    useDragger(props.id)
+
+    return <div id={props.id} className={classes["box-container"]} ref={boxRef}>
 
             <div className={`${classes.resizer} ${classes.rl}`} ref={refLeft} ></div>
             <div className={`${classes.resizer} ${classes.rt}` } ref={refTop}></div>
