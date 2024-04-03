@@ -38,6 +38,8 @@ function useDragger(id) {
 
         const onMouseMove = (e) => {
 
+
+
             if(!isClicked.current){
                 return;
             }

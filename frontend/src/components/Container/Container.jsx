@@ -8,11 +8,9 @@ import classes from './Container.module.css'
 
 const Container = () => {
     
-   const [mousePosition, setMousePosition] = useState()
-   const refContainer = useRef()
 
+    return <main className={classes.main}>
 
-    return <main id="container" className={classes.main} ref={refContainer}>
                         <Box id="first" />
         </main>
 
