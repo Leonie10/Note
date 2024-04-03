@@ -3,7 +3,7 @@ import FormAuthentification from "../UI/FormAuthentification"
 
 
 const Authentication = () => {
-    return<div>
+    return <div>
         <FormAuthentification/>
        
     </div>

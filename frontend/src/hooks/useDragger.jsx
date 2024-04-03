@@ -38,19 +38,6 @@ function useDragger(id) {
 
         const onMouseMove = (e) => {
 
-             //Element position in viewport
-            // const targetRect = target.getBoundingClientRect()
-            // const left = targetRect.left;
-            // const top = targetRect.top;
-            // const width = targetRect.width;
-            // const height = targetRect.height
-
-            // //Mouse position in element 
-            // const mousex = e.clientX - left;
-            // const mousey = e.clientY - top;
-            // console.log(mousex, mousey)
-
-
             if(!isClicked.current){
                 return;
             }
@@ -64,7 +51,8 @@ function useDragger(id) {
 
     
         }
-                                                                                                                       
+                                               
+        
         const onMouseUp = (e) => {
             isClicked.current = false;
 

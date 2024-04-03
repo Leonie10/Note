@@ -10,7 +10,6 @@ const Note = (props) => {
    
   return <Box/>
   
-    
 }
 
 export default Note;
